@@ -399,16 +399,26 @@ export default function VisitsPage() {
                         {v.visit_date}
                       </p>
                     </div>
-                    <div className="flex items-center gap-3 ml-4 shrink-0">
+                    <div className="flex items-center gap-2 ml-4 shrink-0">
                       <div className={`w-12 h-12 rounded-full beli-badge flex items-center justify-center font-black text-sm shrink-0 ${scoreBadgeBg(v.overall_score)}`}>
                         {v.overall_score.toFixed(1)}
                       </div>
-                      <button
-                        onClick={(e) => { e.stopPropagation(); setDeleteId(v.visit_id); }}
-                        className="text-outline hover:text-error transition-colors text-sm font-bold opacity-0 group-hover:opacity-100"
-                      >
-                        ✕
-                      </button>
+                      <div className="flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button
+                          onClick={(e) => { e.stopPropagation(); startEdit(v); }}
+                          className="text-secondary hover:text-primary transition-colors text-xs font-bold px-2 py-1 rounded hover:bg-surface-container-high"
+                          title="Edit visit"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={(e) => { e.stopPropagation(); setDeleteId(v.visit_id); }}
+                          className="text-outline hover:text-error transition-colors text-xs font-bold px-2 py-1 rounded hover:bg-surface-container-high"
+                          title="Delete visit"
+                        >
+                          Delete
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
