@@ -1,0 +1,534 @@
+<!doctype html>
+
+<html class="light" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Fairway Check - The Digital Clubhouse</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "error-container": "#ffdad6",
+                            "on-surface": "#1c1c18",
+                            "on-error-container": "#93000a",
+                            "on-tertiary-container": "#4e3d00",
+                            surface: "#fcf9f2",
+                            "surface-container-high": "#ebe8e1",
+                            "on-secondary-fixed-variant": "#574500",
+                            "secondary-container": "#fed65b",
+                            "on-secondary": "#ffffff",
+                            "on-primary-container": "#75af89",
+                            "on-primary": "#ffffff",
+                            "tertiary-container": "#cba72f",
+                            "surface-tint": "#316948",
+                            "on-secondary-fixed": "#241a00",
+                            secondary: "#735c00",
+                            "on-tertiary-fixed": "#241a00",
+                            "tertiary-fixed": "#ffe088",
+                            "tertiary-fixed-dim": "#e9c349",
+                            background: "#fcf9f2",
+                            "surface-container": "#f0eee7",
+                            error: "#ba1a1a",
+                            "on-primary-fixed-variant": "#165132",
+                            primary: "#002a15",
+                            "surface-variant": "#e5e2db",
+                            "surface-container-highest": "#e5e2db",
+                            "inverse-primary": "#98d4ac",
+                            "inverse-on-surface": "#f3f0ea",
+                            "secondary-fixed": "#ffe088",
+                            "on-background": "#1c1c18",
+                            "surface-container-low": "#f6f3ec",
+                            "inverse-surface": "#31312c",
+                            "on-error": "#ffffff",
+                            "surface-bright": "#fcf9f2",
+                            "primary-fixed": "#b4f0c7",
+                            "on-secondary-container": "#745c00",
+                            "outline-variant": "#c0c9c0",
+                            outline: "#717971",
+                            tertiary: "#735c00",
+                            "surface-container-lowest": "#ffffff",
+                            "secondary-fixed-dim": "#e9c349",
+                            "on-tertiary-fixed-variant": "#574500",
+                            "primary-fixed-dim": "#98d4ac",
+                            "primary-container": "#004225",
+                            "on-surface-variant": "#404942",
+                            "on-primary-fixed": "#002110",
+                            "surface-dim": "#dcdad3",
+                            "on-tertiary": "#ffffff",
+                        },
+                        fontFamily: {
+                            headline: ["Manrope"],
+                            body: ["Plus Jakarta Sans"],
+                            label: ["Plus Jakarta Sans"],
+                        },
+                        borderRadius: {
+                            DEFAULT: "0.25rem",
+                            lg: "0.5rem",
+                            xl: "0.75rem",
+                            full: "9999px",
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            .material-symbols-outlined {
+                font-variation-settings:
+                    "FILL" 0,
+                    "wght" 400,
+                    "GRAD" 0,
+                    "opsz" 24;
+            }
+            .text-shadow-sm {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .hero-gradient {
+                background: linear-gradient(
+                    155deg,
+                    rgba(0, 42, 21, 0.9) 0%,
+                    rgba(0, 66, 37, 0.7) 100%
+                );
+            }
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+    </head>
+    <body
+        class="bg-surface font-body text-on-surface flex flex-col min-h-screen"
+    >
+        <!-- Top Navigation Bar -->
+        <nav
+            class="w-full top-0 sticky z-50 bg-[#fcf9f2] dark:bg-emerald-950/20"
+        >
+            <div
+                class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto"
+            >
+                <div
+                    class="text-xl font-bold tracking-tighter text-emerald-900 dark:text-emerald-50 font-headline"
+                >
+                    Fairway Check
+                </div>
+                <div
+                    class="hidden md:flex items-center gap-8 font-['Manrope'] tracking-tight text-base font-semibold text-emerald-800/60 dark:text-emerald-100/60"
+                >
+                    <a
+                        class="text-emerald-900 dark:text-emerald-50 border-b-2 border-[#735c00] pb-1 hover:text-emerald-900 dark:hover:text-white transition-colors duration-200 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Home</a
+                    >
+                    <a
+                        class="hover:text-emerald-900 dark:hover:text-white transition-colors duration-200 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Log Visit</a
+                    >
+                    <a
+                        class="hover:text-emerald-900 dark:hover:text-white transition-colors duration-200 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Explore</a
+                    >
+                    <a
+                        class="hover:text-emerald-900 dark:hover:text-white transition-colors duration-200 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Profile</a
+                    >
+                </div>
+                <button class="md:hidden text-primary">
+                    <span class="material-symbols-outlined" data-icon="menu"
+                        >menu</span
+                    >
+                </button>
+            </div>
+        </nav>
+        <!-- Hero Section -->
+        <section
+            class="relative h-[870px] flex items-center justify-center overflow-hidden"
+        >
+            <div class="absolute inset-0 z-0">
+                <img
+                    alt="Luxury Golf Course"
+                    class="w-full h-full object-cover blur-[2px] scale-105"
+                    data-alt="wide shot of a pristine golf green with a flag pin and rolling hills in the background during a soft hazy morning light"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJb38gc20JntkEMGQfzIR3IyNYySelvUynyG0-P0Y-Xgjae81k6hgUS0A4WJqZkgMTU5B6tjZrU3Tch57-AXSPPG7LB4rayfzsHZiT434RKnNSApwvgSdjzlguYX3Ohna_AaNw31VDEx_n2Dfjq396huoakCYkglifYV6GNb3icECCT8TjQ0XZgIyuGoMM1Lc39r24ZhvU12GuMR69m-AxNQsl4OCYCOHPV6iP1yy4lmxdxzVw2hzfNhOMSsi7jFeGZ38_voh8kh7X"
+                />
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+            <div class="relative z-10 text-center px-4 max-w-3xl">
+                <h1
+                    class="font-headline font-extrabold text-6xl md:text-8xl text-white mb-4 tracking-tighter text-shadow-sm"
+                >
+                    Fairway Check
+                </h1>
+                <p
+                    class="font-body text-xl md:text-2xl text-on-primary-container font-medium mb-12 tracking-wide"
+                >
+                    Know before you go
+                </p>
+                <!-- Search Bar Component -->
+                <div class="relative w-full max-w-2xl mx-auto">
+                    <div
+                        class="flex items-center bg-surface-container-lowest rounded-xl px-6 py-4 shadow-[0px_12px_32px_rgba(28,28,24,0.1)] transition-all focus-within:ring-2 focus-within:ring-secondary"
+                    >
+                        <span
+                            class="material-symbols-outlined text-outline mr-4"
+                            data-icon="search"
+                            >search</span
+                        >
+                        <input
+                            class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline font-medium py-1"
+                            placeholder="Search specific courses or locations..."
+                            type="text"
+                        />
+                        <button
+                            class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-headline font-bold text-sm tracking-wide transition-all hover:brightness-110 active:scale-95"
+                        >
+                            FIND
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Main Content Canvas -->
+        <main class="flex-grow">
+            <!-- Top Rated Courses Section -->
+            <section class="py-20 bg-surface">
+                <div class="max-w-7xl mx-auto px-8">
+                    <div class="flex items-end justify-between mb-10">
+                        <div>
+                            <span
+                                class="font-label text-secondary font-extrabold tracking-[0.2em] text-xs"
+                                >DISCOVER PRESTIGE</span
+                            >
+                            <h2
+                                class="font-headline text-4xl font-extrabold text-primary tracking-tight mt-2"
+                            >
+                                Top Rated Courses Near You
+                            </h2>
+                        </div>
+                        <div class="hidden md:flex gap-4">
+                            <button
+                                class="p-2 rounded-full bg-surface-container-low text-primary hover:bg-surface-container-high transition-colors"
+                            >
+                                <span
+                                    class="material-symbols-outlined"
+                                    data-icon="chevron_left"
+                                    >chevron_left</span
+                                >
+                            </button>
+                            <button
+                                class="p-2 rounded-full bg-surface-container-low text-primary hover:bg-surface-container-high transition-colors"
+                            >
+                                <span
+                                    class="material-symbols-outlined"
+                                    data-icon="chevron_right"
+                                    >chevron_right</span
+                                >
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Horizontal Scroller -->
+                    <div
+                        class="flex gap-8 overflow-x-auto no-scrollbar pb-10 -mx-4 px-4 snap-x snap-mandatory"
+                    >
+                        <!-- Course Card 1 -->
+                        <div
+                            class="min-w-[340px] md:min-w-[400px] snap-start group relative"
+                        >
+                            <div
+                                class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:-translate-y-2"
+                            >
+                                <div class="h-64 overflow-hidden relative">
+                                    <img
+                                        alt="Oak Valley"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        data-alt="dramatic landscape of a fairway with sand bunkers and tall pine trees at sunset with long shadows"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0VZbE4DkQh0hPL1J8sl82ZEuts8TJ0oxe5ZbAY6Bj-mrDhKCV7WFUaYCoCZxfauSjq5FLdmycV9Iu99nKGkDr9pnzPDzmzN4mGW4DD0ovmx-MPXDj9i-vWJJO39GGTo9cKig-cZu0uHeddrGe3J8ppz78VtKQSE8JgqFdQLj7tfIjcLfruBZOD3FFIxMPXMU-sEZ4svIAa1ieUOrC-NfWnEuJIWa9ICxBc-LI4cUcPoj6_Jl2fWnGrVXv-9bsKay0ifbCvqGaCLO6"
+                                    />
+                                    <div class="absolute top-4 right-4 z-20">
+                                        <div
+                                            class="w-14 h-14 rounded-full bg-primary-container text-primary-fixed flex items-center justify-center font-headline font-extrabold text-xl border-2 border-white/20 shadow-xl"
+                                        >
+                                            9.4
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span
+                                            class="material-symbols-outlined text-secondary text-sm"
+                                            data-icon="location_on"
+                                            >location_on</span
+                                        >
+                                        <p
+                                            class="font-label text-xs font-bold text-outline uppercase tracking-wider"
+                                        >
+                                            Cypress Hills, CA
+                                        </p>
+                                    </div>
+                                    <h3
+                                        class="font-headline text-2xl font-bold text-primary mb-2"
+                                    >
+                                        Oak Valley Reserve
+                                    </h3>
+                                    <p
+                                        class="text-on-surface-variant text-sm leading-relaxed mb-4"
+                                    >
+                                        Renowned for its challenging back nine
+                                        and impeccably manicured bentgrass
+                                        greens.
+                                    </p>
+                                    <div
+                                        class="flex items-center justify-between pt-4 border-t border-outline-variant/15"
+                                    >
+                                        <span
+                                            class="font-bold text-secondary text-sm"
+                                            >$185 Green Fee</span
+                                        >
+                                        <span
+                                            class="material-symbols-outlined text-outline"
+                                            data-icon="arrow_forward"
+                                            >arrow_forward</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Course Card 2 -->
+                        <div
+                            class="min-w-[340px] md:min-w-[400px] snap-start group relative"
+                        >
+                            <div
+                                class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:-translate-y-2"
+                            >
+                                <div class="h-64 overflow-hidden relative">
+                                    <img
+                                        alt="Stone Creek"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        data-alt="lush green links style golf course by the ocean with rocky cliffs and blue waves crashing in the background"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMYiIJ8A2nyvxy_iZOw-xSjFceS8ltXeI_dXH5OamaCWGRqzeKeKoIKoObO4R152aymxmzezurO-7Up1FQL36GauU9UDw9PYNxKpLAlYM-9X6LAg3kxeuVbbePaop0jg8eVTiqWkA-rXK-kQP2Bm8ki3qR82Fze16LwJ2qN9CmZ7wmhFmCKmpY0EjdNOsa8Jw1rJLvOZ6MA5JB-sZHGRxI7Wos7XlmLWXuz4uGpKV4_UpwQDdCbt5fMwNG14zuNf_zp6PTdEkoova6"
+                                    />
+                                    <div class="absolute top-4 right-4 z-20">
+                                        <div
+                                            class="w-14 h-14 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-headline font-extrabold text-xl border-2 border-white/20 shadow-xl"
+                                        >
+                                            8.8
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span
+                                            class="material-symbols-outlined text-secondary text-sm"
+                                            data-icon="location_on"
+                                            >location_on</span
+                                        >
+                                        <p
+                                            class="font-label text-xs font-bold text-outline uppercase tracking-wider"
+                                        >
+                                            Monterey Bay, CA
+                                        </p>
+                                    </div>
+                                    <h3
+                                        class="font-headline text-2xl font-bold text-primary mb-2"
+                                    >
+                                        Stone Creek Links
+                                    </h3>
+                                    <p
+                                        class="text-on-surface-variant text-sm leading-relaxed mb-4"
+                                    >
+                                        A coastal masterpiece offering
+                                        breathtaking ocean views on every single
+                                        hole.
+                                    </p>
+                                    <div
+                                        class="flex items-center justify-between pt-4 border-t border-outline-variant/15"
+                                    >
+                                        <span
+                                            class="font-bold text-secondary text-sm"
+                                            >$220 Green Fee</span
+                                        >
+                                        <span
+                                            class="material-symbols-outlined text-outline"
+                                            data-icon="arrow_forward"
+                                            >arrow_forward</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Course Card 3 -->
+                        <div
+                            class="min-w-[340px] md:min-w-[400px] snap-start group relative"
+                        >
+                            <div
+                                class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:-translate-y-2"
+                            >
+                                <div class="h-64 overflow-hidden relative">
+                                    <img
+                                        alt="Pine Hollow"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        data-alt="misty forest golf course with tall evergreen trees and early morning dew on the fairway with rays of light"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAtiPf6arhNCY0LluqZOMEyAtG8Pxsk1RSmADsYGM2lKHLknL-1mx_2ts4_lKXAo76zu7guXaSjFvJ2bgrMeHyzSNKftpB391klBV9FRk96mEfWtm7Qmm0xs_nPU4luMYoRR2iwyhTox7AtwQwANnJopyc2XeLsengSI2ORQPxDR0JbOrOCaNIH8O7nGZNYaW41YrrKDB_rWHDsO7yeraE4878h9A6zBECysNVrxO27ftj_J-ZOwL3PuxkHV-ODA9BO60qF4b6QYm0"
+                                    />
+                                    <div class="absolute top-4 right-4 z-20">
+                                        <div
+                                            class="w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center font-headline font-extrabold text-xl border-2 border-white/20 shadow-xl"
+                                        >
+                                            9.1
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span
+                                            class="material-symbols-outlined text-secondary text-sm"
+                                            data-icon="location_on"
+                                            >location_on</span
+                                        >
+                                        <p
+                                            class="font-label text-xs font-bold text-outline uppercase tracking-wider"
+                                        >
+                                            Augusta Region, GA
+                                        </p>
+                                    </div>
+                                    <h3
+                                        class="font-headline text-2xl font-bold text-primary mb-2"
+                                    >
+                                        Pine Hollow Woods
+                                    </h3>
+                                    <p
+                                        class="text-on-surface-variant text-sm leading-relaxed mb-4"
+                                    >
+                                        Traditional parkland design that rewards
+                                        precision over raw power.
+                                    </p>
+                                    <div
+                                        class="flex items-center justify-between pt-4 border-t border-outline-variant/15"
+                                    >
+                                        <span
+                                            class="font-bold text-secondary text-sm"
+                                            >$145 Green Fee</span
+                                        >
+                                        <span
+                                            class="material-symbols-outlined text-outline"
+                                            data-icon="arrow_forward"
+                                            >arrow_forward</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Aesthetic Bento Grid Section -->
+            <section class="py-16 bg-surface-container-low">
+                <div class="max-w-7xl mx-auto px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div
+                            class="md:col-span-2 bg-primary rounded-xl p-10 flex flex-col justify-end min-h-[350px] relative overflow-hidden text-white"
+                        >
+                            <div class="absolute top-0 right-0 p-8 opacity-20">
+                                <span
+                                    class="material-symbols-outlined text-[120px]"
+                                    data-icon="analytics"
+                                    >analytics</span
+                                >
+                            </div>
+                            <h3
+                                class="font-headline text-4xl font-bold mb-4 z-10"
+                            >
+                                Real-Time Course Intelligence
+                            </h3>
+                            <p
+                                class="text-on-primary-container max-w-md text-lg z-10"
+                            >
+                                Get instant updates on aeration, course
+                                conditions, and pace of play before you book
+                                your next tee time.
+                            </p>
+                        </div>
+                        <div
+                            class="bg-secondary rounded-xl p-10 flex flex-col items-center justify-center text-center text-on-secondary"
+                        >
+                            <span
+                                class="material-symbols-outlined text-6xl mb-6"
+                                data-icon="workspace_premium"
+                                style="
+                                    font-variation-settings: &quot;FILL&quot; 1;
+                                "
+                                >workspace_premium</span
+                            >
+                            <h3 class="font-headline text-2xl font-bold mb-2">
+                                Clubhouse Access
+                            </h3>
+                            <p
+                                class="text-sm font-medium opacity-90 uppercase tracking-widest"
+                            >
+                                Premium Membership
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer
+            class="w-full mt-auto bg-[#f6f3ec] dark:bg-emerald-950 border-t border-emerald-900/5 dark:border-white/5"
+        >
+            <div
+                class="flex flex-col md:flex-row justify-between items-center px-8 py-12 gap-6 max-w-7xl mx-auto"
+            >
+                <div
+                    class="text-sm font-black text-emerald-900 dark:text-emerald-50 font-headline uppercase tracking-tighter"
+                >
+                    Fairway Check
+                </div>
+                <p
+                    class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-emerald-800/50 dark:text-emerald-100/50"
+                >
+                    © 2024 Fairway Check. The Digital Clubhouse.
+                </p>
+                <div
+                    class="flex gap-8 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest font-bold"
+                >
+                    <a
+                        class="text-emerald-800/50 dark:text-emerald-100/50 hover:text-[#735c00] transition-colors"
+                        href="#"
+                        >Privacy</a
+                    >
+                    <a
+                        class="text-emerald-800/50 dark:text-emerald-100/50 hover:text-[#735c00] transition-colors"
+                        href="#"
+                        >Terms</a
+                    >
+                    <a
+                        class="text-emerald-800/50 dark:text-emerald-100/50 hover:text-[#735c00] transition-colors"
+                        href="#"
+                        >Community Guidelines</a
+                    >
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,645 @@
+<!doctype html>
+
+<html class="light" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "error-container": "#ffdad6",
+                            "on-surface": "#1c1c18",
+                            "on-error-container": "#93000a",
+                            "on-tertiary-container": "#4e3d00",
+                            surface: "#fcf9f2",
+                            "surface-container-high": "#ebe8e1",
+                            "on-secondary-fixed-variant": "#574500",
+                            "secondary-container": "#fed65b",
+                            "on-secondary": "#ffffff",
+                            "on-primary-container": "#75af89",
+                            "on-primary": "#ffffff",
+                            "tertiary-container": "#cba72f",
+                            "surface-tint": "#316948",
+                            "on-secondary-fixed": "#241a00",
+                            secondary: "#735c00",
+                            "on-tertiary-fixed": "#241a00",
+                            "tertiary-fixed": "#ffe088",
+                            "tertiary-fixed-dim": "#e9c349",
+                            background: "#fcf9f2",
+                            "surface-container": "#f0eee7",
+                            error: "#ba1a1a",
+                            "on-primary-fixed-variant": "#165132",
+                            primary: "#002a15",
+                            "surface-variant": "#e5e2db",
+                            "surface-container-highest": "#e5e2db",
+                            "inverse-primary": "#98d4ac",
+                            "inverse-on-surface": "#f3f0ea",
+                            "secondary-fixed": "#ffe088",
+                            "on-background": "#1c1c18",
+                            "surface-container-low": "#f6f3ec",
+                            "inverse-surface": "#31312c",
+                            "on-error": "#ffffff",
+                            "surface-bright": "#fcf9f2",
+                            "primary-fixed": "#b4f0c7",
+                            "on-secondary-container": "#745c00",
+                            "outline-variant": "#c0c9c0",
+                            outline: "#717971",
+                            tertiary: "#735c00",
+                            "surface-container-lowest": "#ffffff",
+                            "secondary-fixed-dim": "#e9c349",
+                            "on-tertiary-fixed-variant": "#574500",
+                            "primary-fixed-dim": "#98d4ac",
+                            "primary-container": "#004225",
+                            "on-surface-variant": "#404942",
+                            "on-primary-fixed": "#002110",
+                            "surface-dim": "#dcdad3",
+                            "on-tertiary": "#ffffff",
+                        },
+                        fontFamily: {
+                            headline: ["Manrope"],
+                            body: ["Plus Jakarta Sans"],
+                            label: ["Plus Jakarta Sans"],
+                        },
+                        borderRadius: {
+                            DEFAULT: "0.25rem",
+                            lg: "0.5rem",
+                            xl: "0.75rem",
+                            full: "9999px",
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            .material-symbols-outlined {
+                font-variation-settings:
+                    "FILL" 0,
+                    "wght" 400,
+                    "GRAD" 0,
+                    "opsz" 24;
+            }
+            input[type="range"] {
+                -webkit-appearance: none;
+                appearance: none;
+                background: transparent;
+                cursor: pointer;
+            }
+            input[type="range"]::-webkit-slider-runnable-track {
+                background: #e5e2db;
+                height: 4px;
+                border-radius: 2px;
+            }
+            input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                margin-top: -6px;
+                background-color: #735c00;
+                height: 16px;
+                width: 16px;
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body
+        class="bg-surface font-body text-on-surface min-h-screen flex flex-col"
+    >
+        <!-- TopNavBar -->
+        <nav
+            class="w-full top-0 sticky z-50 bg-[#fcf9f2] dark:bg-emerald-950/20"
+        >
+            <div
+                class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto"
+            >
+                <div
+                    class="text-xl font-bold tracking-tighter text-emerald-900 dark:text-emerald-50 font-headline"
+                >
+                    Fairway Check
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a
+                        class="font-['Manrope'] tracking-tight text-base font-semibold text-emerald-800/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-white transition-colors duration-200 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Home</a
+                    >
+                    <a
+                        class="font-['Manrope'] tracking-tight text-base font-semibold text-emerald-900 dark:text-emerald-50 border-b-2 border-[#735c00] pb-1 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Log Visit</a
+                    >
+                    <a
+                        class="font-['Manrope'] tracking-tight text-base font-semibold text-emerald-800/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-white transition-colors duration-200 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Explore</a
+                    >
+                    <a
+                        class="font-['Manrope'] tracking-tight text-base font-semibold text-emerald-800/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-white transition-colors duration-200 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Profile</a
+                    >
+                </div>
+                <div class="md:hidden">
+                    <span class="material-symbols-outlined text-primary"
+                        >menu</span
+                    >
+                </div>
+            </div>
+        </nav>
+        <main class="flex-grow max-w-7xl mx-auto w-full px-8 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Left Column: Report Entry -->
+                <div class="lg:col-span-8 space-y-12">
+                    <header class="space-y-2">
+                        <h1
+                            class="font-headline text-4xl font-extrabold tracking-tight text-primary"
+                        >
+                            Log Your Round
+                        </h1>
+                        <p class="text-on-surface-variant font-medium">
+                            Contribute to the Digital Clubhouse by detailing
+                            your latest visit.
+                        </p>
+                    </header>
+                    <!-- Course Selection Section -->
+                    <section
+                        class="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 bg-surface-container-low rounded-xl"
+                    >
+                        <div class="flex flex-col gap-2">
+                            <label
+                                class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant font-bold"
+                                >Select Golf Course</label
+                            >
+                            <div class="relative group">
+                                <select
+                                    class="w-full appearance-none bg-surface-container-lowest border-none py-4 px-4 rounded-lg focus:ring-2 focus:ring-secondary transition-all outline-none font-semibold text-primary"
+                                >
+                                    <option>Pebble Beach Golf Links</option>
+                                    <option>Augusta National</option>
+                                    <option>St Andrews (Old Course)</option>
+                                    <option>Pinehurst No. 2</option>
+                                    <option>Cypress Point Club</option>
+                                </select>
+                                <span
+                                    class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline"
+                                    >expand_more</span
+                                >
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label
+                                class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant font-bold"
+                                >Date of Visit</label
+                            >
+                            <input
+                                class="w-full bg-surface-container-lowest border-none py-4 px-4 rounded-lg focus:ring-2 focus:ring-secondary outline-none font-semibold text-primary"
+                                type="date"
+                                value="2024-05-24"
+                            />
+                        </div>
+                    </section>
+                    <!-- Condition Categories Grid -->
+                    <section>
+                        <div class="mb-8 flex items-baseline justify-between">
+                            <h2
+                                class="font-headline text-2xl font-bold text-primary"
+                            >
+                                Course Conditions
+                            </h2>
+                            <span
+                                class="font-label text-[10px] uppercase tracking-widest text-outline"
+                                >Rate from 1.0 to 10.0</span
+                            >
+                        </div>
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-8"
+                        >
+                            <!-- Category Item -->
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-primary text-sm"
+                                        >Greens Speed</span
+                                    >
+                                    <span class="text-secondary font-black"
+                                        >9.2</span
+                                    >
+                                </div>
+                                <input
+                                    class="w-full"
+                                    max="10"
+                                    min="1"
+                                    step="0.1"
+                                    type="range"
+                                    value="9.2"
+                                />
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-primary text-sm"
+                                        >Greens Quality</span
+                                    >
+                                    <span class="text-secondary font-black"
+                                        >8.8</span
+                                    >
+                                </div>
+                                <input
+                                    class="w-full"
+                                    max="10"
+                                    min="1"
+                                    step="0.1"
+                                    type="range"
+                                    value="8.8"
+                                />
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-primary text-sm"
+                                        >Fairway Quality</span
+                                    >
+                                    <span class="text-secondary font-black"
+                                        >8.5</span
+                                    >
+                                </div>
+                                <input
+                                    class="w-full"
+                                    max="10"
+                                    min="1"
+                                    step="0.1"
+                                    type="range"
+                                    value="8.5"
+                                />
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-primary text-sm"
+                                        >Bunker Maintenance</span
+                                    >
+                                    <span class="text-secondary font-black"
+                                        >7.4</span
+                                    >
+                                </div>
+                                <input
+                                    class="w-full"
+                                    max="10"
+                                    min="1"
+                                    step="0.1"
+                                    type="range"
+                                    value="7.4"
+                                />
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-primary text-sm"
+                                        >Tee Boxes</span
+                                    >
+                                    <span class="text-secondary font-black"
+                                        >9.0</span
+                                    >
+                                </div>
+                                <input
+                                    class="w-full"
+                                    max="10"
+                                    min="1"
+                                    step="0.1"
+                                    type="range"
+                                    value="9.0"
+                                />
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-primary text-sm"
+                                        >Rough Condition</span
+                                    >
+                                    <span class="text-secondary font-black"
+                                        >6.5</span
+                                    >
+                                </div>
+                                <input
+                                    class="w-full"
+                                    max="10"
+                                    min="1"
+                                    step="0.1"
+                                    type="range"
+                                    value="6.5"
+                                />
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-primary text-sm"
+                                        >Pace of Play</span
+                                    >
+                                    <span class="text-secondary font-black"
+                                        >5.2</span
+                                    >
+                                </div>
+                                <input
+                                    class="w-full"
+                                    max="10"
+                                    min="1"
+                                    step="0.1"
+                                    type="range"
+                                    value="5.2"
+                                />
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-primary text-sm"
+                                        >Staff Friendliness</span
+                                    >
+                                    <span class="text-secondary font-black"
+                                        >9.5</span
+                                    >
+                                </div>
+                                <input
+                                    class="w-full"
+                                    max="10"
+                                    min="1"
+                                    step="0.1"
+                                    type="range"
+                                    value="9.5"
+                                />
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-primary text-sm"
+                                        >Value for Money</span
+                                    >
+                                    <span class="text-secondary font-black"
+                                        >8.0</span
+                                    >
+                                </div>
+                                <input
+                                    class="w-full"
+                                    max="10"
+                                    min="1"
+                                    step="0.1"
+                                    type="range"
+                                    value="8.0"
+                                />
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Comments and Submit -->
+                    <section class="space-y-6">
+                        <div class="flex flex-col gap-2">
+                            <label
+                                class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant font-bold"
+                                >Additional Notes</label
+                            >
+                            <textarea
+                                class="w-full h-32 bg-surface-container-low border-none rounded-xl p-6 focus:ring-2 focus:ring-secondary transition-all outline-none font-body text-primary placeholder:text-outline"
+                                placeholder="Describe the weather, pin placements, or specific highlights..."
+                            ></textarea>
+                        </div>
+                        <button
+                            class="w-full py-5 bg-secondary text-on-secondary font-headline font-bold text-lg rounded-xl flex items-center justify-center gap-3 hover:brightness-110 active:scale-[0.99] transition-all shadow-xl shadow-secondary/20 relative overflow-hidden group"
+                        >
+                            <div
+                                class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                                style="
+                                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBBdqTp3zpnrMJka16cD0f2jDEsr6o1Hqxbpu6Hb6dZ1fpLKx1ppex9p9CgNYKHUcoSwfcDcnB__mRMQybQD-8I0XgdNWAwTxlNcXbkrPWWBaSL1W1JBO32Io7tJLEI4B7_Vv4brUymq4qdAKRfNMCYH3bhLQb9Y62RF0l8VbstSRSqwaRnivnwB8aYZn6FjJf6izi8DlBlSgElwbCdV05tFWeMhb48B38WHTFlaNMOGHdASeO690PHhNJo97QohGuWRr8yee-HJCqs&quot;);
+                                "
+                            ></div>
+                            Submit Report
+                            <span class="material-symbols-outlined text-lg"
+                                >send</span
+                            >
+                        </button>
+                    </section>
+                </div>
+                <!-- Right Column: Live Score & History -->
+                <div class="lg:col-span-4 space-y-12">
+                    <!-- Live Score Badge Display -->
+                    <div
+                        class="bg-primary p-1 rounded-3xl overflow-hidden shadow-2xl"
+                    >
+                        <div
+                            class="bg-surface-container-lowest rounded-[1.25rem] p-10 flex flex-col items-center text-center space-y-6 relative overflow-hidden"
+                        >
+                            <div
+                                class="absolute -top-12 -right-12 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"
+                            ></div>
+                            <h3
+                                class="font-label text-xs uppercase tracking-widest font-black text-outline"
+                            >
+                                Overall Score
+                            </h3>
+                            <div class="relative group">
+                                <!-- Beli-Inspired Circular Badge -->
+                                <div
+                                    class="w-48 h-48 rounded-full border-[10px] border-primary-fixed flex items-center justify-center relative shadow-inner"
+                                >
+                                    <span
+                                        class="font-headline text-7xl font-black text-primary tracking-tighter"
+                                        >8.1</span
+                                    >
+                                </div>
+                                <!-- Mini Badge Overlay -->
+                                <div
+                                    class="absolute -top-2 -right-2 w-12 h-12 bg-secondary rounded-full flex items-center justify-center border-4 border-surface-container-lowest shadow-lg"
+                                >
+                                    <span
+                                        class="material-symbols-outlined text-on-secondary text-xl"
+                                        style="
+                                            font-variation-settings: &quot;FILL&quot;
+                                                1;
+                                        "
+                                        >star</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="space-y-1">
+                                <p
+                                    class="font-headline text-xl font-bold text-primary"
+                                >
+                                    Excellent Conditions
+                                </p>
+                                <p
+                                    class="text-sm text-on-surface-variant font-medium"
+                                >
+                                    Pebble Beach is playing firm today.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recent Visits -->
+                    <section class="space-y-6">
+                        <h3
+                            class="font-headline text-2xl font-bold text-primary"
+                        >
+                            Recent Visits
+                        </h3>
+                        <div class="space-y-4">
+                            <!-- Visit Card -->
+                            <div
+                                class="bg-surface-container-low p-5 rounded-xl flex items-center justify-between relative group cursor-pointer hover:bg-surface-container-high transition-colors"
+                            >
+                                <div class="flex items-center gap-5">
+                                    <div
+                                        class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0"
+                                    >
+                                        <img
+                                            alt="golf course view"
+                                            class="w-full h-full object-cover"
+                                            data-alt="vibrant aerial view of a professional golf course fairway with manicured grass and bunkers under bright daylight"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlA1fsvVmK7lQzOq4iU50wd46MVLV4sGhUOkqKfNEXTqFeFDQxSjn2d6HVaGkjbOZS0phf4kjZ3667sZGu_m8MYFcUVre_7ZDd_3JlItgsFdlKvy0PmmPqkMzg2Jw6JeVBANXlx8Of9G4fjZWd9URZAJJineTnUTqOl0HI5YkXsfghZMIwGqMCpBDWeCrJid6NaoR8k_r2eWldBvLAELag_myKW2gGtiW1F80XwbdfA6YlCTg-MqmV8NWiOBNxByyKiesUiqctIEby"
+                                        />
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="font-bold text-primary leading-tight"
+                                        >
+                                            Augusta National
+                                        </h4>
+                                        <p
+                                            class="text-xs text-on-surface-variant font-medium mt-1 uppercase tracking-wider"
+                                        >
+                                            Apr 12, 2024
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center border-2 border-white/50 shadow-sm flex-shrink-0"
+                                >
+                                    <span
+                                        class="font-black text-primary text-sm"
+                                        >9.4</span
+                                    >
+                                </div>
+                            </div>
+                            <!-- Visit Card -->
+                            <div
+                                class="bg-surface-container-low p-5 rounded-xl flex items-center justify-between relative group cursor-pointer hover:bg-surface-container-high transition-colors"
+                            >
+                                <div class="flex items-center gap-5">
+                                    <div
+                                        class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0"
+                                    >
+                                        <img
+                                            alt="golf hole"
+                                            class="w-full h-full object-cover"
+                                            data-alt="scenic golf green with a flag pin and soft afternoon shadows across the perfectly cut grass"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-J3hBn2HEMpfngvE7gT6wjtLdj2c406-s-jhY_TtMIdt1CtSu-ERHL99MtpiJPQPSZPwwRrSSHNLZBluwbTYsuHlOfITMd3lH4QJ-gV7HsN0ny4A3O95O1jlhqaB9ZZ7rFMvsBhAMuMlVCrgfA6lHlnq-jG3bqwA4FpN9Wk6tQVsErQIHIp2qQaYFveW0m_A37Yk4tlumgdLMqeYsEgCuDg9fE02ZvhN7_TZ2hC8cbHhp6wxz8sVQrFI9eNNqiU41XuA_v9eVnqWS"
+                                        />
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="font-bold text-primary leading-tight"
+                                        >
+                                            Pinehurst No. 2
+                                        </h4>
+                                        <p
+                                            class="text-xs text-on-surface-variant font-medium mt-1 uppercase tracking-wider"
+                                        >
+                                            Mar 28, 2024
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center border-2 border-white/50 shadow-sm flex-shrink-0"
+                                >
+                                    <span
+                                        class="font-black text-secondary text-sm"
+                                        >7.2</span
+                                    >
+                                </div>
+                            </div>
+                            <!-- Visit Card -->
+                            <div
+                                class="bg-surface-container-low p-5 rounded-xl flex items-center justify-between relative group cursor-pointer hover:bg-surface-container-high transition-colors"
+                            >
+                                <div class="flex items-center gap-5">
+                                    <div
+                                        class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0"
+                                    >
+                                        <img
+                                            alt="rough grass"
+                                            class="w-full h-full object-cover"
+                                            data-alt="textured close-up of thick golf rough grass with dew drops in early morning cool light"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFfxUO12_VvZjFwreb8nQx29uaTVAxCpU7sV4j-yIHFNO54avh9j1xjbPmuNPLHqvkXIQfaFj2kuymdrIuACyPPv9tiwPjs44u8uIjaoUMI-XIofvKCIgVki4tsENjc8iBDycLSV-Ss5a1mMWVRsbENj2jtVVUzGqAFMxKvXnkn6VW9iQyZftYlM5w33Mn0e4gx7xgpZHbx7sVtlqHFFxV6ZreJaJAvuvuCr1M-IjFvJnl63KvepiP9nXab3gAcDuVlY2j8E25c2ZR"
+                                        />
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="font-bold text-primary leading-tight"
+                                        >
+                                            Torrey Pines
+                                        </h4>
+                                        <p
+                                            class="text-xs text-on-surface-variant font-medium mt-1 uppercase tracking-wider"
+                                        >
+                                            Feb 15, 2024
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center border-2 border-white/50 shadow-sm flex-shrink-0"
+                                >
+                                    <span
+                                        class="font-black text-on-error-container text-sm"
+                                        >4.8</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full text-center py-4 font-label text-[10px] uppercase tracking-widest font-black text-outline hover:text-secondary transition-colors"
+                        >
+                            View All Visit History
+                        </button>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer
+            class="w-full mt-auto bg-[#f6f3ec] dark:bg-emerald-950 border-t border-emerald-900/5 dark:border-white/5"
+        >
+            <div
+                class="flex flex-col md:flex-row justify-between items-center px-8 py-12 gap-6 max-w-7xl mx-auto"
+            >
+                <div
+                    class="text-sm font-black text-emerald-900 dark:text-emerald-50 font-headline uppercase tracking-tighter"
+                >
+                    Fairway Check
+                </div>
+                <div class="flex gap-8">
+                    <a
+                        class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-emerald-800/50 dark:text-emerald-100/50 hover:text-[#735c00] transition-colors"
+                        href="#"
+                        >Privacy</a
+                    >
+                    <a
+                        class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-emerald-800/50 dark:text-emerald-100/50 hover:text-[#735c00] transition-colors"
+                        href="#"
+                        >Terms</a
+                    >
+                    <a
+                        class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-emerald-800/50 dark:text-emerald-100/50 hover:text-[#735c00] transition-colors"
+                        href="#"
+                        >Community Guidelines</a
+                    >
+                </div>
+                <p
+                    class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-emerald-800/50 dark:text-emerald-100/50"
+                >
+                    © 2024 Fairway Check. The Digital Clubhouse.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,623 @@
+<!doctype html>
+
+<html class="light" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Course Conditions Report | Fairway Check</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "error-container": "#ffdad6",
+                            "on-surface": "#1c1c18",
+                            "on-error-container": "#93000a",
+                            "on-tertiary-container": "#4e3d00",
+                            surface: "#fcf9f2",
+                            "surface-container-high": "#ebe8e1",
+                            "on-secondary-fixed-variant": "#574500",
+                            "secondary-container": "#fed65b",
+                            "on-secondary": "#ffffff",
+                            "on-primary-container": "#75af89",
+                            "on-primary": "#ffffff",
+                            "tertiary-container": "#cba72f",
+                            "surface-tint": "#316948",
+                            "on-secondary-fixed": "#241a00",
+                            secondary: "#735c00",
+                            "on-tertiary-fixed": "#241a00",
+                            "tertiary-fixed": "#ffe088",
+                            "tertiary-fixed-dim": "#e9c349",
+                            background: "#fcf9f2",
+                            "surface-container": "#f0eee7",
+                            error: "#ba1a1a",
+                            "on-primary-fixed-variant": "#165132",
+                            primary: "#002a15",
+                            "surface-variant": "#e5e2db",
+                            "surface-container-highest": "#e5e2db",
+                            "inverse-primary": "#98d4ac",
+                            "inverse-on-surface": "#f3f0ea",
+                            "secondary-fixed": "#ffe088",
+                            "on-background": "#1c1c18",
+                            "surface-container-low": "#f6f3ec",
+                            "inverse-surface": "#31312c",
+                            "on-error": "#ffffff",
+                            "surface-bright": "#fcf9f2",
+                            "primary-fixed": "#b4f0c7",
+                            "on-secondary-container": "#745c00",
+                            "outline-variant": "#c0c9c0",
+                            outline: "#717971",
+                            tertiary: "#735c00",
+                            "surface-container-lowest": "#ffffff",
+                            "secondary-fixed-dim": "#e9c349",
+                            "on-tertiary-fixed-variant": "#574500",
+                            "primary-fixed-dim": "#98d4ac",
+                            "primary-container": "#004225",
+                            "on-surface-variant": "#404942",
+                            "on-primary-fixed": "#002110",
+                            "surface-dim": "#dcdad3",
+                            "on-tertiary": "#ffffff",
+                        },
+                        fontFamily: {
+                            headline: ["Manrope"],
+                            body: ["Plus Jakarta Sans"],
+                            label: ["Plus Jakarta Sans"],
+                        },
+                        borderRadius: {
+                            DEFAULT: "0.25rem",
+                            lg: "0.5rem",
+                            xl: "0.75rem",
+                            full: "9999px",
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            .material-symbols-outlined {
+                font-variation-settings:
+                    "FILL" 0,
+                    "wght" 400,
+                    "GRAD" 0,
+                    "opsz" 24;
+            }
+            .beli-badge {
+                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+                border: 2px solid rgba(255, 255, 255, 0.2);
+            }
+            .whisper-shadow {
+                box-shadow: 0px 12px 32px rgba(28, 28, 24, 0.06);
+            }
+            input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                background: #735c00;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body
+        class="bg-surface text-on-surface font-body selection:bg-secondary-container"
+    >
+        <!-- TopNavBar -->
+        <nav
+            class="w-full top-0 sticky z-50 bg-[#fcf9f2] dark:bg-emerald-950/20"
+        >
+            <div
+                class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto"
+            >
+                <div
+                    class="text-xl font-bold tracking-tighter text-emerald-900 dark:text-emerald-50 font-headline"
+                >
+                    Fairway Check
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a
+                        class="font-['Manrope'] tracking-tight text-base font-semibold text-emerald-800/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-white transition-colors duration-200 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Home</a
+                    >
+                    <a
+                        class="font-['Manrope'] tracking-tight text-base font-semibold text-emerald-800/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-white transition-colors duration-200 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Log Visit</a
+                    >
+                    <a
+                        class="font-['Manrope'] tracking-tight text-base font-semibold text-emerald-900 dark:text-emerald-50 border-b-2 border-[#735c00] pb-1 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Explore</a
+                    >
+                    <a
+                        class="font-['Manrope'] tracking-tight text-base font-semibold text-emerald-800/60 dark:text-emerald-100/60 hover:text-emerald-900 dark:hover:text-white transition-colors duration-200 cursor-pointer active:opacity-70"
+                        href="#"
+                        >Profile</a
+                    >
+                </div>
+                <button class="md:hidden text-primary">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </nav>
+        <main class="max-w-7xl mx-auto px-6 md:px-8 py-12">
+            <!-- Hero Header -->
+            <header class="mb-12">
+                <h1
+                    class="font-headline text-5xl font-extrabold text-primary tracking-tight mb-4"
+                >
+                    Course Conditions Report
+                </h1>
+                <p
+                    class="font-body text-lg text-on-surface-variant max-w-2xl leading-relaxed"
+                >
+                    The definitive daily digest of greens, fairways, and
+                    atmosphere across the nation's premier clubs.
+                </p>
+            </header>
+            <!-- Refined Filter Controls -->
+            <section
+                class="bg-surface-container-low p-8 rounded-xl mb-16 whisper-shadow"
+            >
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-end">
+                    <!-- Region Dropdown -->
+                    <div class="flex flex-col gap-2">
+                        <label
+                            class="font-label text-[10px] font-bold tracking-widest text-on-surface-variant uppercase"
+                            >Region / State</label
+                        >
+                        <select
+                            class="bg-surface-container-lowest border-none rounded-lg p-3 font-body text-sm focus:ring-2 focus:ring-secondary text-primary"
+                        >
+                            <option>All Regions</option>
+                            <option>California, USA</option>
+                            <option>Florida, USA</option>
+                            <option>Arizona, USA</option>
+                            <option>South Carolina, USA</option>
+                        </select>
+                    </div>
+                    <!-- Date Pickers -->
+                    <div class="flex flex-col gap-2">
+                        <label
+                            class="font-label text-[10px] font-bold tracking-widest text-on-surface-variant uppercase"
+                            >Date Range Start</label
+                        >
+                        <input
+                            class="bg-surface-container-lowest border-none rounded-lg p-3 font-body text-sm focus:ring-2 focus:ring-secondary text-primary"
+                            type="date"
+                        />
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label
+                            class="font-label text-[10px] font-bold tracking-widest text-on-surface-variant uppercase"
+                            >Date Range End</label
+                        >
+                        <input
+                            class="bg-surface-container-lowest border-none rounded-lg p-3 font-body text-sm focus:ring-2 focus:ring-secondary text-primary"
+                            type="date"
+                        />
+                    </div>
+                    <!-- Minimum Score Slider -->
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between items-center">
+                            <label
+                                class="font-label text-[10px] font-bold tracking-widest text-on-surface-variant uppercase"
+                                >Min Overall Rating</label
+                            >
+                            <span class="text-secondary font-bold text-sm"
+                                >8.0+</span
+                            >
+                        </div>
+                        <input
+                            class="w-full h-2 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-secondary"
+                            max="10"
+                            min="0"
+                            step="0.1"
+                            type="range"
+                            value="8.0"
+                        />
+                    </div>
+                </div>
+            </section>
+            <!-- Course Result Cards -->
+            <div class="grid grid-cols-1 gap-12">
+                <!-- Card 1 (Expanded State) -->
+                <div
+                    class="group bg-surface-container-lowest rounded-xl whisper-shadow overflow-hidden transition-all duration-300"
+                >
+                    <div class="p-8 flex flex-col md:flex-row gap-8">
+                        <!-- Image & Identity -->
+                        <div class="w-full md:w-1/3 relative">
+                            <img
+                                class="w-full h-64 object-cover rounded-lg"
+                                data-alt="dramatic wide shot of a coastal golf course green at sunset with crashing waves and golden sunlight on the grass"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgjGQLd5gNi-3naXSHqDA3GiEnHoI2zRpT-s2y5-XDNEwW8PkcVMSyW9FYmKkZ8555X8zVn3hNQyKujc4MxjmDNl1PFcjctkCELC7jaKD0YzGlc6sCJNgerDe9aUBPHo41lMA58COGvWE9CSlHHo3a_HKBMLyn-I0APoL5jwmmrN5WUngjmGCP7LzG0XUZabs52kzxU8A7bezSNOCfvCdPU_lErElH2qBwJsidlDoSxpWgPrpul0Nx4LWgcRx71UL5wDLs9gmvEJSx"
+                            />
+                            <div
+                                class="absolute -top-4 -right-4 w-20 h-20 beli-badge rounded-full bg-primary flex flex-col items-center justify-center text-on-primary"
+                            >
+                                <span class="font-headline text-2xl font-bold"
+                                    >9.2</span
+                                >
+                                <span
+                                    class="font-label text-[8px] tracking-tighter uppercase opacity-80"
+                                    >Overall</span
+                                >
+                            </div>
+                        </div>
+                        <!-- Content -->
+                        <div
+                            class="w-full md:w-2/3 flex flex-col justify-between"
+                        >
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span
+                                        class="material-symbols-outlined text-secondary text-sm"
+                                        style="
+                                            font-variation-settings: &quot;FILL&quot;
+                                                1;
+                                        "
+                                        >verified</span
+                                    >
+                                    <span
+                                        class="font-label text-[10px] font-bold tracking-widest text-secondary uppercase"
+                                        >Elite Status</span
+                                    >
+                                </div>
+                                <h2
+                                    class="font-headline text-3xl font-bold text-primary mb-1"
+                                >
+                                    Pebble Beach Golf Links
+                                </h2>
+                                <p class="text-on-surface-variant font-medium">
+                                    Monterey, California
+                                </p>
+                                <div class="flex items-center gap-6 mt-6">
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="text-on-surface-variant text-sm font-semibold"
+                                            >142 reviews</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-1 text-emerald-600"
+                                    >
+                                        <span
+                                            class="material-symbols-outlined text-base"
+                                            >trending_up</span
+                                        >
+                                        <span class="text-xs font-bold"
+                                            >+0.3 this week</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Horizontal Bar Chart (Expanded Section) -->
+                            <div
+                                class="mt-8 pt-8 border-t border-surface-container-high grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4"
+                            >
+                                <!-- Metric 1 -->
+                                <div>
+                                    <div
+                                        class="flex justify-between items-center mb-1.5"
+                                    >
+                                        <span
+                                            class="font-label text-[9px] font-bold text-on-surface-variant tracking-wider uppercase"
+                                            >Greens Speed</span
+                                        >
+                                        <span
+                                            class="text-[10px] font-bold text-primary"
+                                            >9.5</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden"
+                                    >
+                                        <div
+                                            class="h-full bg-primary"
+                                            style="width: 95%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <!-- Metric 2 -->
+                                <div>
+                                    <div
+                                        class="flex justify-between items-center mb-1.5"
+                                    >
+                                        <span
+                                            class="font-label text-[9px] font-bold text-on-surface-variant tracking-wider uppercase"
+                                            >Fairway Quality</span
+                                        >
+                                        <span
+                                            class="text-[10px] font-bold text-primary"
+                                            >9.1</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden"
+                                    >
+                                        <div
+                                            class="h-full bg-primary"
+                                            style="width: 91%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <!-- Metric 3 -->
+                                <div>
+                                    <div
+                                        class="flex justify-between items-center mb-1.5"
+                                    >
+                                        <span
+                                            class="font-label text-[9px] font-bold text-on-surface-variant tracking-wider uppercase"
+                                            >Bunker Care</span
+                                        >
+                                        <span
+                                            class="text-[10px] font-bold text-primary"
+                                            >8.8</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden"
+                                    >
+                                        <div
+                                            class="h-full bg-primary"
+                                            style="width: 88%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <!-- Metric 4 -->
+                                <div>
+                                    <div
+                                        class="flex justify-between items-center mb-1.5"
+                                    >
+                                        <span
+                                            class="font-label text-[9px] font-bold text-on-surface-variant tracking-wider uppercase"
+                                            >Tee Box Level</span
+                                        >
+                                        <span
+                                            class="text-[10px] font-bold text-primary"
+                                            >9.4</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden"
+                                    >
+                                        <div
+                                            class="h-full bg-primary"
+                                            style="width: 94%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <!-- Metric 5 -->
+                                <div>
+                                    <div
+                                        class="flex justify-between items-center mb-1.5"
+                                    >
+                                        <span
+                                            class="font-label text-[9px] font-bold text-on-surface-variant tracking-wider uppercase"
+                                            >Rough Length</span
+                                        >
+                                        <span
+                                            class="text-[10px] font-bold text-primary"
+                                            >8.5</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden"
+                                    >
+                                        <div
+                                            class="h-full bg-primary"
+                                            style="width: 85%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <!-- Metric 6 -->
+                                <div>
+                                    <div
+                                        class="flex justify-between items-center mb-1.5"
+                                    >
+                                        <span
+                                            class="font-label text-[9px] font-bold text-on-surface-variant tracking-wider uppercase"
+                                            >Fringe Quality</span
+                                        >
+                                        <span
+                                            class="text-[10px] font-bold text-primary"
+                                            >9.0</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden"
+                                    >
+                                        <div
+                                            class="h-full bg-primary"
+                                            style="width: 90%"
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 (Collapsed View) -->
+                <div
+                    class="group bg-surface-container-lowest rounded-xl whisper-shadow overflow-hidden transition-all duration-300 hover:scale-[1.01] cursor-pointer"
+                >
+                    <div
+                        class="p-8 flex flex-col md:flex-row gap-8 items-center"
+                    >
+                        <div class="w-full md:w-1/4 relative">
+                            <img
+                                class="w-full h-40 object-cover rounded-lg"
+                                data-alt="manicured golf course fairway with rhythmic mowing patterns leading toward a white sand bunker under bright daylight"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTEIoV4QgmrqhT86vnEXsZO5QPzg0CfOuwG-SXGaV2ldsVkdl5f_paZpsRa1ns0wWVu4nHlMpV_ujKwikjYd4ntA-grqFWCvUnbOtghOeys4AP9_8qI3EfXsvgpfRgBqpjE3UVgb1a4igjz7qwTYZ3er7QclMfPplExFIqVT-3kEl7sI6LT0GufHJMOINmkKrjUd7WBVD9kePfOQB5tJA8YghwcQ1XupyjEiqxIHsqcB4kKZgDROmt0edDjL0PLvE8hG5al9PZqk3i"
+                            />
+                            <div
+                                class="absolute -top-3 -right-3 w-16 h-16 beli-badge rounded-full bg-secondary flex flex-col items-center justify-center text-on-secondary"
+                            >
+                                <span class="font-headline text-xl font-bold"
+                                    >8.4</span
+                                >
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h2
+                                class="font-headline text-2xl font-bold text-primary mb-1"
+                            >
+                                TPC Sawgrass
+                            </h2>
+                            <p class="text-on-surface-variant font-medium">
+                                Ponte Vedra Beach, Florida
+                            </p>
+                            <div class="flex items-center gap-4 mt-4">
+                                <span
+                                    class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider"
+                                    >210 reviews</span
+                                >
+                                <div class="flex items-center gap-1 text-error">
+                                    <span
+                                        class="material-symbols-outlined text-base"
+                                        >trending_down</span
+                                    >
+                                    <span class="text-xs font-bold"
+                                        >-0.1 this week</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 text-primary/40 group-hover:text-secondary transition-colors"
+                        >
+                            <span
+                                class="font-label text-[10px] font-bold tracking-widest uppercase"
+                                >View Conditions</span
+                            >
+                            <span class="material-symbols-outlined"
+                                >expand_more</span
+                            >
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 (Collapsed View) -->
+                <div
+                    class="group bg-surface-container-lowest rounded-xl whisper-shadow overflow-hidden transition-all duration-300 hover:scale-[1.01] cursor-pointer"
+                >
+                    <div
+                        class="p-8 flex flex-col md:flex-row gap-8 items-center"
+                    >
+                        <div class="w-full md:w-1/4 relative">
+                            <img
+                                class="w-full h-40 object-cover rounded-lg"
+                                data-alt="scenic golf hole with lush green grass and red rock mountains in the background under a clear blue sky"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2JZJpZN_2FZGBwPfHw6kp-7qF-kg9xumYCvBLeT77GNrmXY_RKqYFYIMnBwUMXmXfdM3sKPa0_aLj-2vDhPbM_B-EB-8ABTdLSkt-K_Y9JxGo80Jaybeqjz8KF03uK5q4ZM_h3LJVRou8l0hBJld0-2-bUr6iT9SuteKcbI9Qa-1gdLYoOBMyp3z35KUBN160vCeityjXDiBozjIDrYXBFSsmlskEl0cAEuR6JW7fMiqn5muQpfLYus0B4LRdZBs9Rci1yvWTTIQc"
+                            />
+                            <div
+                                class="absolute -top-3 -right-3 w-16 h-16 beli-badge rounded-full bg-primary flex flex-col items-center justify-center text-on-primary"
+                            >
+                                <span class="font-headline text-xl font-bold"
+                                    >8.7</span
+                                >
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h2
+                                class="font-headline text-2xl font-bold text-primary mb-1"
+                            >
+                                Troon North Golf Club
+                            </h2>
+                            <p class="text-on-surface-variant font-medium">
+                                Scottsdale, Arizona
+                            </p>
+                            <div class="flex items-center gap-4 mt-4">
+                                <span
+                                    class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider"
+                                    >89 reviews</span
+                                >
+                                <div
+                                    class="flex items-center gap-1 text-emerald-600"
+                                >
+                                    <span
+                                        class="material-symbols-outlined text-base"
+                                        >trending_up</span
+                                    >
+                                    <span class="text-xs font-bold"
+                                        >+0.5 this week</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 text-primary/40 group-hover:text-secondary transition-colors"
+                        >
+                            <span
+                                class="font-label text-[10px] font-bold tracking-widest uppercase"
+                                >View Conditions</span
+                            >
+                            <span class="material-symbols-outlined"
+                                >expand_more</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination / Load More -->
+            <div class="mt-16 flex justify-center">
+                <button
+                    class="bg-secondary text-on-secondary px-8 py-3 rounded-md font-label text-xs font-bold tracking-widest uppercase flex items-center gap-3 hover:opacity-90 transition-opacity"
+                >
+                    Load More Courses
+                    <span class="material-symbols-outlined text-sm"
+                        >keyboard_arrow_down</span
+                    >
+                </button>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="w-full mt-auto bg-[#f6f3ec] dark:bg-emerald-950">
+            <div
+                class="flex flex-col md:flex-row justify-between items-center px-8 py-12 gap-6 max-w-7xl mx-auto border-t border-emerald-900/5 dark:border-white/5"
+            >
+                <div
+                    class="text-sm font-black text-emerald-900 dark:text-emerald-50 font-headline"
+                >
+                    Fairway Check
+                </div>
+                <div
+                    class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-emerald-800/50 dark:text-emerald-100/50"
+                >
+                    © 2024 Fairway Check. The Digital Clubhouse.
+                </div>
+                <div class="flex gap-6">
+                    <a
+                        class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-emerald-800/50 dark:text-emerald-100/50 hover:text-[#735c00] transition-colors"
+                        href="#"
+                        >Privacy</a
+                    >
+                    <a
+                        class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-emerald-800/50 dark:text-emerald-100/50 hover:text-[#735c00] transition-colors"
+                        href="#"
+                        >Terms</a
+                    >
+                    <a
+                        class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-emerald-800/50 dark:text-emerald-100/50 hover:text-[#735c00] transition-colors"
+                        href="#"
+                        >Community Guidelines</a
+                    >
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
