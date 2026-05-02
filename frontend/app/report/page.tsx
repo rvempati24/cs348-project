@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 
-const API = "http://127.0.0.1:8080";
+const API = process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8080";
 
 const CATEGORIES: { key: string; label: string }[] = [
   { key: "greens_speed", label: "Greens Speed" },

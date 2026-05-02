@@ -1,0 +1,10 @@
+runtime: python311
+
+# SQLite lives in /tmp (the only writable path on App Engine Standard).
+# manual_scaling: 1 keeps the instance permanently alive so the database
+# file persists across requests throughout the demo.
+env_variables:
+  DATABASE_PATH: /tmp/golf.db
+
+manual_scaling:
+  instances: 1

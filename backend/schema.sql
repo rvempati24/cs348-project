@@ -24,3 +24,8 @@ CREATE TABLE IF NOT EXISTS ConditionRatings (
     category    TEXT NOT NULL,
     score       REAL NOT NULL CHECK(score >= 1.0 AND score <= 10.0)
 );
+
+CREATE INDEX IF NOT EXISTS idx_visits_course_id ON Visits(course_id);
+CREATE INDEX IF NOT EXISTS idx_visits_visit_date ON Visits(visit_date);
+CREATE INDEX IF NOT EXISTS idx_conditionratings_visit_id ON ConditionRatings(visit_id);
+CREATE INDEX IF NOT EXISTS idx_courses_state_region ON Courses(state, region);

@@ -5,6 +5,8 @@ from db import get_db, init_db
 app = Flask(__name__)
 CORS(app)
 
+init_db()
+
 CATEGORIES = [
     'greens_speed', 'greens_quality', 'fairway_quality',
     'bunker_maintenance', 'tee_boxes', 'rough_condition',
@@ -37,7 +39,7 @@ def create_course():
     if not name or not city or not state or not region or not num_holes or not par:
         return jsonify({'error': 'name, city, state, region, num_holes, and par are required'}), 400
 
-    db = get_db()
+    db = get_db('IMMEDIATE')
     try:
         cur = db.execute(
             'INSERT INTO Courses (name, city, state, region, num_holes, par, green_fees, website) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
@@ -106,7 +108,7 @@ def create_visit():
 
     overall = round(sum(ratings.values()) / len(ratings), 1)
 
-    db = get_db()
+    db = get_db('IMMEDIATE')
     try:
         cur = db.execute(
             'INSERT INTO Visits (course_id, visit_date, overall_score, comments) VALUES (?, ?, ?, ?)',
@@ -142,7 +144,9 @@ def update_visit(visit_id):
 
     overall = round(sum(ratings.values()) / len(ratings), 1)
 
-    db = get_db()
+    # IMMEDIATE: the update spans three statements (UPDATE + DELETE + INSERT x9);
+    # locking up front ensures no reader sees a partially updated visit.
+    db = get_db('IMMEDIATE')
     try:
         db.execute(
             'UPDATE Visits SET course_id=?, visit_date=?, overall_score=?, comments=? WHERE visit_id=?',
@@ -165,7 +169,7 @@ def update_visit(visit_id):
 
 @app.route('/api/visits/<int:visit_id>', methods=['DELETE'])
 def delete_visit(visit_id):
-    db = get_db()
+    db = get_db('IMMEDIATE')
     try:
         db.execute('DELETE FROM Visits WHERE visit_id=?', (visit_id,))
         db.commit()
@@ -284,5 +288,4 @@ def get_report():
 
 
 if __name__ == '__main__':
-    init_db()
     app.run(debug=True, port=8080)
